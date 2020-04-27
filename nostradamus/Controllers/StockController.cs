@@ -21,11 +21,14 @@ namespace nostradamus.Controllers
             return new string[] { "value1", "value2" };
         }
 
-        // GET: api/Stock/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        // GET: api/Stock/query
+        [HttpGet("{query}", Name = "Get")]
+        public async Task<string> Get(string query)
         {
-            return "value";
+            using (HttpClient client = new HttpClient())
+            {
+                return await client.GetStringAsync(baseUrl + query);
+            }
         }
 
 

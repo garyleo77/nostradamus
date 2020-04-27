@@ -14,12 +14,9 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.stockService.getStock('IBM').subscribe((result: any) => {
+    this.stockService.getStockInfo('function=TIME_SERIES_WEEKLY&symbol=IBM').subscribe((result: any) => {
       console.log('test: ', result);
       this.stockData = result;
-    });
-    this.stockService.getStockNet().subscribe((result: any) => {
-      console.log('test2:', result);
     });
     this.displayData();
   }

@@ -7,11 +7,7 @@ export class StockService {
 
   }
 
-  getStock(ticker: string) {
-    return this.dataService.get(`StockTimeSeries/${ticker}`);
-  }
-
-  getStockNet() {
-    return this.dataService.get2('/api/Stock/5');
+  getStockInfo(query: string) {
+    return this.dataService.get(`Stock/${query}`);
   }
 }

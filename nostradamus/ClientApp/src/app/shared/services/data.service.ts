@@ -52,13 +52,6 @@ export class DataService {
     }).pipe(catchError((err: HttpErrorResponse) => this.handleErrorObservable(err)));
   }
 
-  get2(callingRoute: string, dataObj: any = null): Observable<any> {
-    return this.http.get(callingRoute, {
-      params: dataObj,
-      headers: this.getHeaders()
-    }).pipe(catchError((err: HttpErrorResponse) => this.handleErrorObservable(err)));
-  }
-
   post(callingRoute: string, dataObj: any, isString: boolean = false) {
     let payload = dataObj;
     if (!!isString) {
