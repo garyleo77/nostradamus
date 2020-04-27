@@ -11,7 +11,7 @@ import {
 
 @Injectable()
 export class DataService {
-  baseUrl: string = 'https://www.alphavantage.co/query?apikey=01GUORIBUQ8FLF7B&';
+  baseUrl: string = '/api/';
   constructor(private http: HttpClient,) {
 
   }
@@ -47,6 +47,13 @@ export class DataService {
 
   get(callingRoute: string, dataObj: any = null): Observable<any> {
     return this.http.get(this.baseUrl + callingRoute, {
+      params: dataObj,
+      headers: this.getHeaders()
+    }).pipe(catchError((err: HttpErrorResponse) => this.handleErrorObservable(err)));
+  }
+
+  get2(callingRoute: string, dataObj: any = null): Observable<any> {
+    return this.http.get(callingRoute, {
       params: dataObj,
       headers: this.getHeaders()
     }).pipe(catchError((err: HttpErrorResponse) => this.handleErrorObservable(err)));

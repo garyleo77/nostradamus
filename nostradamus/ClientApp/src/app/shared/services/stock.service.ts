@@ -8,7 +8,10 @@ export class StockService {
   }
 
   getStock(ticker: string) {
-    return this.dataService.get(`function=TIME_SERIES_WEEKLY&symbol=${ticker}`);
+    return this.dataService.get(`StockTimeSeries/${ticker}`);
   }
 
+  getStockNet() {
+    return this.dataService.get2('/api/Stock/5');
+  }
 }
