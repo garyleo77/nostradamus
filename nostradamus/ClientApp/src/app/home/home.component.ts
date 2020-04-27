@@ -18,6 +18,9 @@ export class HomeComponent implements OnInit {
       console.log('test: ', result);
       this.stockData = result;
     });
+    this.stockService.getUserInfo('Gary').subscribe((result: any) => {
+      console.log('test2:', result);
+    });
     this.displayData();
   }
 

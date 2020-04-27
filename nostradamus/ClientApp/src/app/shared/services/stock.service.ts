@@ -10,4 +10,8 @@ export class StockService {
   getStockInfo(query: string) {
     return this.dataService.get(`Stock/${query}`);
   }
+
+  getUserInfo(firstName: string) {
+    return this.dataService.get(`User/GetUser/${firstName}`);
+  }
 }
